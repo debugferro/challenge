@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>Status</h2>
+  <p style="text-align: center; font-size: 1rem;">Last updated: <%= last_updated_txt(@transaction) %></p>
+  <div class="row">
+    <div class="row justify-content-between">
+      <div class="order-tracking completed">
+        <span class="is-complete"></span>
+        <p>Pending<br>
+        </div>
+        <div class="order-tracking <%= class_for_payment_completed(@transaction) %>">
+          <span class="is-complete"></span>
+          <p>Completed<br>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= if @transaction.status == :pending do %>
+      <p style="text-align: center;"><%= @transaction.status_msg %></p>
+    <% end %>
+    <table>
+      <tr>
+        <th>Tx Hash</th>
+        <th>Value</th>
+        <th>Confirmed Blocks</th>
+      </tr>
+      <tr>
+        <td><%= @transaction.tx_hash %></td>
+        <td><%= @transaction.value %></td>
+        <td><%= @transaction.confirmed_blocks %></td>
+      </tr>
+    </table>

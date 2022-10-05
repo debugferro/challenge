@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:13-alpine
+    hostname: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: utrust_challenge_dev
+    volumes:
+      - db:/var/lib/postgresql/data
+
+  server:
+    build:
+      context: .
+    environment:
+      DB_USER: postgres
+      DB_PASS: postgres
+      DB_HOST: postgres
+    tty: true
+    stdin_open: true
+    ports:
+      - "4000:4000"
+    depends_on:
+      - postgres
+    command: sh -c "mix deps.get && mix ecto.reset && mix phx.server"
+    links:
+      - postgres
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+volumes:
+  db:
+    driver: local

@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>Your Transactions</h2>
+  <ul class="responsive-table">
+    <li class="table-header">
+      <div class="col col-1">Tx Hash</div>
+      <div class="col col-2">Currency</div>
+      <div class="col col-3">Options</div>
+    </li>
+    <%= for transaction <- @transactions do %>
+      <li class="table-row">
+        <div class="col col-1" data-label="Tx Hash"><%= truncate(transaction.tx_hash) %></div>
+        <div class="col col-2" data-label="Currency"><%= transaction.currency %></div>
+        <div class="col col-3" data-label="Options"><%= link "Show Status", to: Routes.transaction_show_path(@conn, :show, transaction) %></div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<span><%= link "Start a new payment", to: Routes.transaction_path(@conn, :new) %></span>
