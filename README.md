@@ -36,7 +36,9 @@ Transactions that are open in the user browser are updated every 2 minutes.
 
 ## 💾 Database diagram
 
-![Database Diagram](https://i.imgur.com/4iIU7hb.png)
+<p align="center">
+   <img src="https://i.imgur.com/4iIU7hb.png">
+</p>
 
 **Subscription:** is the record that tells that the user is subscribed to a certain transaction, enabling the user to check the progress of it.
 
