@@ -5,8 +5,9 @@ Utrust Challenge project for the role of Software Developer.
 ## 🚀 How to run it?
 
 1. Clone the project `git clone git@github.com:debugferro/challenge.git`
-2. Get into the project folder
-   You can run the project's phoenix server with docker or without docker.
+2. Get into the project folder `cd challenge`
+
+You can run the project's phoenix server with docker or without docker.
 
 ##### 🤖 Without docker:
 
