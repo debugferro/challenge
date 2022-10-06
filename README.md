@@ -31,8 +31,11 @@ Run the following:
 - `docker-compose build` and
 - `docker-compose up` to start it all.
 
-Now you can access the server at `http://localhost:4000`
+Now you can access the server at `http://localhost:4000`.
+
 Remember to run `docker-compose down` after using it.
+
+PS: Make sure you have the port `5432` free.
 
 ## ❓ How to use it?
 
