@@ -2,7 +2,7 @@ defmodule UtrustChallenge.Account.Transaction do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias UtrustChallenge.Account.{Subscription, StatusDetails}
+  alias UtrustChallenge.Account.Subscription
 
   @primary_key {:id, :binary_id, autogenerate: true}
 

@@ -4,14 +4,14 @@ defmodule UtrustChallenge.BlockchainExplorer do
   """
   alias UtrustChallenge.{Account, Account.Transaction}
 
-  @adapters Application.get_env(:utrust_challenge, UtrustChallenge.BlockchainExplorer.Adapter)
+  @adapters Application.compile_env(:utrust_challenge, UtrustChallenge.BlockchainExplorer.Adapter)
   @currencies Transaction.currencie_values()
 
   def fetch_transaction_details(tx_hash, currency) when currency in @currencies do
     adapter(currency).fetch_transaction(tx_hash)
   end
 
-  def fetch_transaction_details(_, cur), do: {:error, "This currency is not supported"}
+  def fetch_transaction_details(_, _currency), do: {:error, "This currency is not supported"}
 
   def update_local_transaction_details(transaction) do
     if Timex.diff(Timex.now, transaction.updated_at, :minutes) >= 2 do

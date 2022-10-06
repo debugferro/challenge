@@ -4,10 +4,9 @@ defmodule UtrustChallenge.BlockchainExplorer.Ethereum.EtherscanApi do
   """
   use Tesla
 
-  alias __MODULE__
   alias UtrustChallenge.BlockchainExplorer.Ethereum.Etherscan.Schemas.ApiTransaction
 
-  @app_env Application.get_env(:utrust_challenge, Etherscan)
+  @app_env Application.compile_env(:utrust_challenge, Etherscan)
   @base_url @app_env[:base_api_url]
   @api_key @app_env[:api_key]
 
@@ -26,4 +25,6 @@ defmodule UtrustChallenge.BlockchainExplorer.Ethereum.EtherscanApi do
       _ -> {:error, body}
     end
   end
+
+  defp format_response(_, _, _), do: {:error, "Unexpected error"}
 end

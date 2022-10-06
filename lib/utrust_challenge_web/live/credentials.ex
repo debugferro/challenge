@@ -1,8 +1,6 @@
 defmodule UtrustChallengeWeb.Live.Credentials do
   @moduledoc "Authentication helper functions"
 
-  alias UtrustChallenge.Identity.User
-  alias Phoenix.LiveView.Socket
   alias Pow.Store.CredentialsCache
 
   def get_user(socket, session, config \\ [otp_app: :utrust_challenge])

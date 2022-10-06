@@ -19,8 +19,7 @@ config :utrust_challenge, UtrustChallengeWeb.Endpoint,
 
 config :utrust_challenge, :pow,
   user: UtrustChallenge.Identity.User,
-  repo: UtrustChallenge.Repo,
-  controller_callbacks: UtrustChallengeWeb.ControllerCallbacks
+  repo: UtrustChallenge.Repo
 
 config :crawly,
   middlewares: [

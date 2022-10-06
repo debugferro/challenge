@@ -1,6 +1,6 @@
 defmodule UtrustChallenge.Helpers do
   def changeset_errors(%Ecto.Changeset{} = changeset) do
-    err = Ecto.Changeset.traverse_errors(changeset, fn {msg, opts} ->
+    Ecto.Changeset.traverse_errors(changeset, fn {msg, opts} ->
       Enum.reduce(opts, msg, fn {key, value}, acc ->
         String.replace(acc, "%{#{key}}", to_string(value))
       end)

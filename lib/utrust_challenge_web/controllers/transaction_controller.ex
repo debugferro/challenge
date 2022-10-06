@@ -33,10 +33,4 @@ defmodule UtrustChallengeWeb.TransactionController do
         |> render("new.html", changeset: @transaction_changeset)
     end
   end
-
-  def show(conn, %{"id" => id}) do
-    transaction = Account.find_transaction(id)
-
-    render(conn, "show.html", transaction: transaction)
-  end
 end

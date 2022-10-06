@@ -2,12 +2,13 @@ defmodule UtrustChallengeWeb.TransactionLive.Show do
   use UtrustChallengeWeb, :live_view
 
   alias UtrustChallenge.BlockchainExplorer
+  alias UtrustChallenge.Account.Transaction
   alias UtrustChallengeWeb.Live.Credentials
   alias UtrustChallengeWeb.Live.Presence
   alias UtrustChallenge.Account
 
   def mount(%{"id" => id}, session, socket) do
-    if connected?(socket), do: Process.send_after(self(), :update, 300_001)
+    if connected?(socket), do: Process.send_after(self(), :update, 180_00)
 
     case Credentials.get_user(socket, session) do
       {:ok, user} ->
@@ -16,7 +17,6 @@ defmodule UtrustChallengeWeb.TransactionLive.Show do
         {:ok, assign(socket, current_user: user)}
 
       {:error, _} ->
-        UtrustChallenge.Endpoint.broadcast(session.live_socket_id, "disconnect", %{})
         {:ok, redirect(socket, to: "/")}
 
       _ ->
@@ -25,13 +25,15 @@ defmodule UtrustChallengeWeb.TransactionLive.Show do
   end
 
   def handle_params(%{"id" => id}, _, socket) do
-    {:ok, transaction} =
-      Account.find_transaction(id)
-      |> BlockchainExplorer.update_local_transaction_details()
-
-    {:noreply,
-     socket
-     |> assign(:transaction, transaction)}
+    with %Transaction{} = transaction <- Account.find_transaction(id),
+         {:ok, transaction} <- BlockchainExplorer.update_local_transaction_details(transaction) do
+      {:noreply,
+       socket
+       |> assign(:transaction, transaction)}
+    else
+      _ ->
+        {:noreply, redirect(socket, to: "/")}
+    end
   end
 
   def handle_info(%{event: "presence_diff"}, socket) do
@@ -40,7 +42,7 @@ defmodule UtrustChallengeWeb.TransactionLive.Show do
 
   def handle_info(:update, socket) do
     {:ok, updated_transaction} =
-      BlockchainExplorer.fetch_transaction_details(socket.assigns.transaction.tx_hash, "ethereum")
+      BlockchainExplorer.fetch_transaction_details(socket.assigns.transaction.tx_hash, "Ethereum")
 
     {:ok, transaction} =
       Account.update_transaction(

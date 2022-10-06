@@ -2,7 +2,7 @@ defmodule UtrustChallenge.BlockchainExplorer.Ethereum.Etherscan.Scraper.Transact
   @moduledoc """
     Transaction page scraper for Etherscan
   """
-  @base_url Application.get_env(:utrust_challenge, Etherscan)[:base_url]
+  @base_url Application.compile_env(:utrust_challenge, Etherscan)[:base_url]
 
   def fetch(tx_hash) do
     Crawly.fetch("#{@base_url}/tx/#{tx_hash}")

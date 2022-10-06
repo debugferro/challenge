@@ -60,13 +60,4 @@ defmodule UtrustChallenge.Account do
         order_by: t.inserted_at
     )
   end
-
-  defp build_subscription_attrs({:ok, transaction}, user_id) do
-    %{
-      user_id: user_id,
-      transaction_id: transaction.id
-    }
-  end
-
-  defp build_subscription_attrs(_, _), do: %{}
 end
