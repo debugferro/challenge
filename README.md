@@ -6,9 +6,11 @@ Utrust Challenge project for the role of Software Developer.
 
 1. Clone the project `git clone git@github.com:debugferro/challenge.git`
 2. Get into the project folder `cd challenge`
-3. Create a .envrc file in the project's root directory to insert your Etherscan API key as follows:
+3. Create a `.envrc` file in the project's root directory to insert your Etherscan API key as follows:
 
-`export ETHERSCAN_API_KEY="YOUR ETHERSCAN API KEY"`
+```
+export ETHERSCAN_API_KEY="YOUR ETHERSCAN API KEY"
+```
 
 You can run the project's phoenix server with docker or without docker.
 
@@ -39,7 +41,7 @@ The main page shows all of your transactions and you can check the status of eve
 
 Transactions that are open in the user browser are updated every 2 minutes.
 
-## 💾 Database diagram
+## 💾 Database Diagram
 
 <p align="center">
    <img src="https://i.imgur.com/4iIU7hb.png">
