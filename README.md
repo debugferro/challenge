@@ -47,6 +47,6 @@ Transactions that are open in the user browser are updated every 2 minutes.
    <img src="https://i.imgur.com/4iIU7hb.png">
 </p>
 
-**Subscription:** is the record that tells that the user is subscribed to a certain transaction, enabling the user to check the progress of it.
+**Subscription:** this record enables the user to track the progress of a certain transaction.
 
-**Transaction:** is the record that has the transaction data. Many users can see a single transaction, depending if they are subscribed to it or not.
+**Transaction:** is the record that has the transaction data. Visualizing a transaction depends on whether users are subscribed to a particular transaction or not.
