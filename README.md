@@ -6,6 +6,9 @@ Utrust Challenge project for the role of Software Developer.
 
 1. Clone the project `git clone git@github.com:debugferro/challenge.git`
 2. Get into the project folder `cd challenge`
+3. Create a .envrc file in the project's root directory to insert your Etherscan API key as follows:
+
+`export ETHERSCAN_API_KEY="YOUR ETHERSCAN API KEY"`
 
 You can run the project's phoenix server with docker or without docker.
 
@@ -13,6 +16,7 @@ You can run the project's phoenix server with docker or without docker.
 
 Run the following:
 
+- `source .envrc` to export the env variables,
 - `mix deps.get && mix ecto.setup` and
 - `mix phx.server` to start the server.
 
