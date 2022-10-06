@@ -21,7 +21,7 @@ defmodule UtrustChallenge.BlockchainExplorer.Ethereum.EtherscanApi do
 
   defp format_response({:ok, %Tesla.Env{status: status, body: body}}, expected_http_code, struct) do
     case status do
-      ^expected_http_code -> {:ok, struct.parse(body)}
+      ^expected_http_code -> struct.parse(body)
       _ -> {:error, body}
     end
   end
