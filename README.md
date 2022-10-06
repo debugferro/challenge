@@ -4,9 +4,10 @@ Utrust Challenge project for the role of Software Developer.
 
 ## 🚀 How to run it?
 
-1. Clone the project `git clone git@bitbucket.org:gabriel1999/utrust_challenge.git`
-2. Get into the project folder
-   You can run the project's phoenix server with docker or without docker.
+1. Clone the project `git clone git@github.com:debugferro/challenge.git`
+2. Get into the project folder `cd challenge`
+
+You can run the project's phoenix server with docker or without docker.
 
 ##### 🤖 Without docker:
 
@@ -36,7 +37,9 @@ Transactions that are open in the user browser are updated every 2 minutes.
 
 ## 💾 Database diagram
 
-![Database Diagram](https://i.imgur.com/4iIU7hb.png)
+<p align="center">
+   <img src="https://i.imgur.com/4iIU7hb.png">
+</p>
 
 **Subscription:** is the record that tells that the user is subscribed to a certain transaction, enabling the user to check the progress of it.
 
