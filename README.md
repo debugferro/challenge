@@ -1,6 +1,13 @@
-# Utrust Challenge
+# ⚔ Utrust Challenge
 
 Utrust Challenge project for the role of Software Developer.
+
+## 🧩 Dependencies
+
+| Dependency | Version                |
+|------------|------------------------|
+| Elixir     | 1.14.0 (Erlang/OTP 23) |
+
 
 ## 🚀 How to run it?
 
