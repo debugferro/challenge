@@ -60,3 +60,9 @@ Transactions that are open in the user browser are updated every 2 minutes.
 **Subscription:** this record enables the user to track the progress of a certain transaction.
 
 **Transaction:** is the record that has the transaction data. Visualizing a transaction depends on whether users are subscribed to a particular transaction or not.
+
+## 📝 Improvement Points
+
+- Store currencies in a table instead of using string enums, improving reliability and reducing hardcoding, such as currency initials.
+- Make the Parser's title strings into global variables, making it easier to change if Etherscan changes its page.
+- Create more tests
